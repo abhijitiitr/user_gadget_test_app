@@ -1,4 +1,5 @@
-<%= form_for [@gadget, @picture], :html => { :class => 'form-horizontal' } do |f| %>
+<% render 'shared/navbar' %> 
+<%= form_for  @picture, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
@@ -6,7 +7,7 @@
     </div>
   </div>
   
-    <%= image_tag @picture.image.large.url, :id => 'cropbox' %>
+    <%= image_tag @picture.image.url(:large), :id => 'cropbox' %>
   
   <% %w[x y w h].each do |attribute| %>
     <%= f.hidden_field "crop_#{attribute}" %>

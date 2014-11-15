@@ -1,7 +1,6 @@
+<% render 'shared/navbar' %> 
+
 <h1><%= @user.first_name %> user id: <%= @user.id %></h1>
-
-<%= link_to('log off', signout_path) %>
-
 <h2>All Gadgets</h2>
 <% unless @gadgets.blank? %>
 <ul class="list-group">

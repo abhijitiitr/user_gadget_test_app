@@ -38,9 +38,8 @@ class PicturesController < ApplicationController
 		
   # GET /pictures/1/edit		
   def edit		
-    #@gadget = Gadget.find(params[:gadget_id])		
-		
     @picture = Picture.find(params[:id])		
+    @gadget = @picture.gadget
     # @picture = Picture.find(params[:id])		
   end		
 		
@@ -69,9 +68,8 @@ class PicturesController < ApplicationController
   # PUT /pictures/1.json		
   def update		
 		
-    @gadget = Gadget.find(params[:gadget_id])		
-		
-    @picture = @gadget.pictures.find(params[:id])		
+    @picture = Picture.find(params[:id])
+    @gadget = @picture.gadget		
 		
     respond_to do |format|		
       if @picture.update_attributes(picture_params)		

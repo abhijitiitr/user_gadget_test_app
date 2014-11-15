@@ -91,7 +91,7 @@ class GadgetsController < ApplicationController
       if @gadget.user_id == @current_user.id
         @gadget.destroy
         respond_to do |format|
-          format.html { redirect_to gadgets_url }
+          format.html { redirect_to user_path(@current_user.id) }
           format.json { head :no_content }
         end
       else
@@ -105,7 +105,7 @@ class GadgetsController < ApplicationController
   def search
     if signed_in?
       query = params[:query]
-      @gadget = Gadget.where("name LIKE '#{query}%'").where(id: @current_user.id).first
+      @gadget = Gadget.where("name LIKE '#{query}%'").where(user_id: @current_user.id).first
       if @gadget
         redirect_to gadget_path(@gadget)
       else

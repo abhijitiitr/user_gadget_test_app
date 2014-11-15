@@ -1,29 +1,32 @@
+<% render 'shared/navbar' %> 
 <div class="row">
   <h1>Gadgets</h1>
   <%= link_to 'New', new_gadget_path, :class => 'btn btn-mini' %>
   <p></p>
   <ul class="thumbnails files">
-    <% @gadgets.each do |gadget| %>
-        <li class="span4" id="gadget_<%= gadget_.id %>">
-          <div class="thumbnail">
-            <% if gadget.pictures.first %>
-            <%= link_to image_tag(gadget.pictures.first.image.url), gadget_path(gadget) %>
-            <% else %>
-              N/A
-            <% end %>
-            <div class="caption">
-              <p style="text-align: center;">
-                <%= gadget.name.truncate(14) %>
-                <%= link_to "Show", gadget_path(gadget) %>
-                <%= link_to "Edit", edit_gadget_path(gadget) %>
-                <%= link_to "Delete", gadget,
-                  :data => { :confirm => "Are you sure?" },
-                  :method => :delete
-                %>
-              </p>
+    <% unless @gadgets.blank? %>
+      <% @gadgets.each do |gadget| %>
+          <li class="span4" id="gadget_<%= gadget_.id %>">
+            <div class="thumbnail">
+              <% if gadget.pictures.first %>
+              <%= link_to image_tag(gadget.pictures.first.image.url), gadget_path(gadget) %>
+              <% else %>
+                N/A
+              <% end %>
+              <div class="caption">
+                <p style="text-align: center;">
+                  <%= gadget.name.truncate(14) %>
+                  <%= link_to "Show", gadget_path(gadget) %>
+                  <%= link_to "Edit", edit_gadget_path(gadget) %>
+                  <%= link_to "Delete", gadget,
+                    :data => { :confirm => "Are you sure?" },
+                    :method => :delete
+                  %>
+                </p>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+      <% end %>
     <% end %>
   </ul>
 

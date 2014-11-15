@@ -1,3 +1,5 @@
+<% render 'shared/navbar' %> 
+
 <%= form_for @gadget, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>

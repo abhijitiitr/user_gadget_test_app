@@ -8,6 +8,7 @@ UserGadgetTestApp::Application.routes.draw do
   get "/signup"  => 'users#new'
   get "/signin" => 'sessions#new'
   get "/signout" => 'sessions#destroy'
+  post '/pictures/default' => 'pictures#make_default', as: 'make_default_gadget_pictures'
   resources :gadgets
   resources :pictures
 
