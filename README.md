@@ -1,0 +1,1 @@
+Test App for users authentication and gadgets upload/view

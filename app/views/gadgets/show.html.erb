@@ -1,0 +1,85 @@
+<div class="row">
+  <h1>Gadget</h1>
+
+  <input type="hidden" id="gadgetID" value="<%= @gadget.id %>">
+
+  <p>
+    <b>Name: </b>
+    <%= @gadget.name %>
+  </p>
+
+  <p>
+    <b>Description: </b>
+    <%= @gadget.description %>
+  </p>
+
+  <div class="form-actions">
+    <%= link_to 'Back', gadgets_path, :class => 'btn btn-mini'  %>
+    <%= link_to 'Edit gadget', edit_gadget_path(@gadget), :class => 'btn btn-mini' %>
+    <%= link_to 'Delete gadget', gadget_path(@gadget), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-mini' %>
+  </div>
+
+<h2>Pictures</h2>
+</div>
+<div class="container">
+  <div id="content">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+      <li class="active"><a href="#cover_flow" data-toggle="tab">Cover Flow</a></li>
+      <li><a href="#list_view" data-toggle="tab">List View</a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="cover_flow">
+          <ul id="gallery">
+          <% unless @pictures.empty? %>
+            <% @pictures.each do |pic| %>
+              <li><img src=<%= pic.image.url %> title="image caption text" alt="image" /></li>
+            <% end %>
+            <% end %>
+          </ul>
+          <script type="text/javascript" charset="utf-8">
+            $(function() {
+              $('#gallery').flowGallery({
+                easing: 'easeOutCubic',
+                imagePadding: 6,
+                thumbWidth: 120
+              });
+            });
+          </script>
+        </div>
+        <div class="tab-pane" id="list_view">
+          <div class="row">
+          <ul class="thumbnails files">
+          <% unless @pictures.empty? %>
+            <% @pictures.each do |pic| %>
+              <li class="span3" id="picture_<%= pic.id %>">
+              <div class="thumbnail">
+                <%= image_tag pic.image.url %>
+                <div class="caption">
+                  <p style="text-align: center;">
+                  <%= link_to "Edit picture", picture_path(pic) %>
+
+                  <%=
+                    link_to "Delete picture", pic,
+                      :data => { :confirm => "Are you sure?" },
+                      :method => :delete
+                    %>
+
+                  </p>
+                </div>
+              </div>
+              </li>
+            <% end %>
+            
+          <% end %>
+          </ul>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+
+</div>
+ 
+
+
