@@ -11,5 +11,5 @@ two:
   first_name: Jesse
   last_name: Ryder
   email: c@d.com
-  encrypted_password: MyString1
-  salt: MyString2
+  encrypted_password: 715a9d94f2b85dd431638a11551e0fd227f01da21a87a3728999dca4fffedb63
+  salt: 37a9a9c55fdb3b4d5d03cac0040e829fd78962ca6d855cf5ba642b1fcb6cbc2e

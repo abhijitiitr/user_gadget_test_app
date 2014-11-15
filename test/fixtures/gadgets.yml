@@ -5,3 +5,11 @@ one:
   description: description2
   cover: cover
   user_id: 1
+
+two:
+  id: 4
+  name: "Gadget2"
+  description: "dcbdbcv"
+  cover: nil
+  user_id: 1
+  token: ni

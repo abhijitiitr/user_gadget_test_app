@@ -1,4 +1,4 @@
-<% render 'shared/navbar' %> 
+<%= render 'shared/navbar' %> 
 
 <h1><%= @user.first_name %> user id: <%= @user.id %></h1>
 <h2>All Gadgets</h2>
@@ -34,5 +34,3 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to "New gadget", new_gadget_path %>

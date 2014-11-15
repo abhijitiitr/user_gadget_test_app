@@ -1,6 +1,13 @@
 class PicturesController < ApplicationController
   # GET /pictures		+ 
   # GET /pictures.json		
+  before_filter :check_if_signed_in
+  def check_if_signed_in
+    unless signed_in?
+      redirect_to signin_path
+    end
+  end
+  
   def index		
 		
     @gadget = Gadget.find(params[:gadget_id])		
